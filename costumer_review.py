@@ -1,5 +1,4 @@
-import pandas as pd 
-import matplotlib.pyplot as plt 
+import pandas as pd
 import numpy as np 
 # loading dataset
 df = pd.read_csv(r"C:\Users\HP\OneDrive\Desktop\NIT All-Projects\Costumer Review\Restaurant_Reviews.tsv",delimiter='\t', quoting = 3)
