@@ -3,7 +3,15 @@ import matplotlib.pyplot as plt
 import numpy as np 
 # loading dataset
 df = pd.read_csv(r"C:\Users\HP\OneDrive\Desktop\NIT All-Projects\Costumer Review\Restaurant_Reviews.tsv",delimiter='\t', quoting = 3)
+# doubling the dataset to increase the accuracy of the model
+doubled_df = pd.concat([df, df], ignore_index=True)
 
+# Save the doubled dataset if needed
+doubled_df.to_csv("doubled_dataset.tsv", sep='\t', index=False)
+
+# Print the result to verify
+print("Original dataset size:", df.shape)
+print("Doubled dataset size:", doubled_df.shape)
 import re 
 import nltk
 #ntlk.download('stopwords')
@@ -29,7 +37,7 @@ y = df.iloc[:,1].values
 #df[:,1].fillna(df[:,1].median(), inplace=True)
 #df.fillna(df.mean(),inplace=True)
 #df['Liked'].fillna(df['Liked'].median(), inplace=True)
- 
+
 #splitting the dataset into the training set and set test set
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.02,random_state=0)
